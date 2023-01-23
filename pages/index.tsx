@@ -7,7 +7,7 @@ interface IndexProps {
 }
 
 // define the page component
-export default function Index(props: IndexProps){
+export default function Index(props: IndexProps) {
   const { todos } = props
 
   return (
@@ -17,11 +17,11 @@ export default function Index(props: IndexProps){
         <h2>Click On Todo to see it individually</h2>
         <Link href="/todos/create"><button>Create a New Todo</button></Link>
         {/* MAPPING OVER THE TODOS */}
-        {todos.map(t => (
-          <div key={t._id}>
-            <Link href={`/todos/${t._id}`}>
+        {todos.map(todo => (
+          <div key={todo._id}>
+            <Link href={`/todos/${todo._id}`}>
               <h3 style={{ cursor: "pointer" }}>
-                {t.item} - {t.completed ? "completed" : "incomplete"}
+                {todo.item} - {todo.completed ? "completed" : "incomplete"}
               </h3>
             </Link>
           </div>
